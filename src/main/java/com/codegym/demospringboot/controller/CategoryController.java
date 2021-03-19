@@ -3,6 +3,7 @@ package com.codegym.demospringboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,7 +35,7 @@ public class CategoryController {
         return modelAndView;
     }
 
-    @GetMapping("/khongcoquyen")
+    @PostMapping("/khongcoquyen")
     public ModelAndView p403(){
         ModelAndView modelAndView =  new ModelAndView("khongcoquyen");
         return modelAndView;
