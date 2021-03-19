@@ -5,4 +5,5 @@ import com.codegym.demospringboot.service.ISevice;
 
 public interface IAppUserService {
     AppUser getUserByName(String name);
+    AppUser getCurrentUser();
 }

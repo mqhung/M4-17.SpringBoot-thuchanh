@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("")
 public class CategoryController {
 
+
+
     @GetMapping("category")
     public ModelAndView showAll(){
         ModelAndView index = new ModelAndView("category");
@@ -19,5 +21,22 @@ public class CategoryController {
     public ModelAndView home(){
         ModelAndView index = new ModelAndView("trangchu");
         return index;
+    }
+
+    @GetMapping("/admin")
+    public ModelAndView admin(){
+        ModelAndView modelAndView = new ModelAndView("admin");
+        return modelAndView;
+    }
+    @GetMapping("/user")
+    public ModelAndView pUser(){
+        ModelAndView modelAndView = new ModelAndView("user");
+        return modelAndView;
+    }
+
+    @GetMapping("/khongcoquyen")
+    public ModelAndView p403(){
+        ModelAndView modelAndView =  new ModelAndView("khongcoquyen");
+        return modelAndView;
     }
 }

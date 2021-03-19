@@ -1,7 +1,9 @@
 package com.codegym.demospringboot.controller;
 
+import com.codegym.demospringboot.model.AppUser;
 import com.codegym.demospringboot.model.Category;
 import com.codegym.demospringboot.model.Product;
+import com.codegym.demospringboot.service.appuser.IAppUserService;
 import com.codegym.demospringboot.service.category.ICategoryService;
 import com.codegym.demospringboot.service.product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,15 @@ public class ProductController {
     @Autowired
     private ICategoryService categoryService;
 
+    @Autowired
+    private IAppUserService appUserService;
+
+    @ModelAttribute("currentUser")
+    private AppUser user(){
+        return appUserService.getCurrentUser();
+    }
+
+
     @ModelAttribute("listCategory")
     public Iterable<Category> showAll(){
         return categoryService.findAll();
@@ -32,6 +43,7 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView("home");
         modelAndView.addObject("productList",products);
         modelAndView.addObject("category",new Category());
+        System.out.println(user().getName());
         return modelAndView;
     }
 
